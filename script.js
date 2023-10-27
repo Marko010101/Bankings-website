@@ -6,6 +6,10 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
 
 ///////////////////////////////////////
 // Modal window
@@ -67,17 +71,17 @@ btnScrollTo.addEventListener('click', function (e) {
   document.documentElement.clientHeight,
   document.documentElement.clientWidth
 );
- */
-// document.querySelectorAll('.nav__link').forEach(function (el) {
-//   el.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     const id = this.getAttribute('href');
-//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-//   });
-// });
 
-// 1. Add event listener to common parent element
-// 2. determine what element originated the event
+document.querySelectorAll('.nav__link').forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = this.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+1. Add event listener to common parent element
+2. determine what element originated the event */
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
@@ -87,10 +91,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
-
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
@@ -105,11 +105,36 @@ tabsContainer.addEventListener('click', function (e) {
   // Active tab content area
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    // Active tab
     .classList.add('operations__content--active');
 });
 
-//PRACTICE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Menu fade animation
+
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+// Passing "argument" into handler
+nav.addEventListener('mouseover', handleHover.bind(0.6));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
+
+const initialCoords = section1.getBoundingClientRect();
+// Sticky navigation
+window.addEventListener('scroll', function (e) {
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+
+//PRACTICE//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //selecing elements
 /* 
 const header = document.querySelector('.header');
