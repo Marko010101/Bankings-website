@@ -181,7 +181,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 allSection.forEach(function (section) {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 // Lazy loading images
@@ -290,6 +290,20 @@ const slider = function () {
   });
 };
 slider();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const linkToBankingsAcc = document.querySelector('.next-step');
+  const myForm = document.getElementById('myForm');
+
+  linkToBankingsAcc.addEventListener('click', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Add your custom logic here to navigate or handle the form data
+    window.location.href = 'https://bankings.netlify.app/';
+  });
+});
+
 // btnLeft.addEventListener('click', function () {
 //   curSlide--;
 //   slides.forEach(
