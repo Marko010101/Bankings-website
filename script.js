@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
 
     // Add your custom logic here to navigate or handle the form data
-    window.location.href = 'https://bankings.netlify.app/';
+    window.location.href = 'https://bankingsapp.netlify.app/';
   });
 });
 
