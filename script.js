@@ -124,33 +124,6 @@ const handleHover = function (e) {
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
-// Passing "argument" into handler
-/* nav.addEventListener('mouseover', handleHover.bind(0.6));
-
-nav.addEventListener('mouseout', handleHover.bind(1));
-
-const initialCoords = section1.getBoundingClientRect();
-// Sticky navigation
-window.addEventListener('scroll', function (e) {
-  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-});
- */
-
-/* const obsCallback = function (entries, observer) {
-  entries.forEach(entry => {
-    console.log(entry);
-  });
-};
-
-const obsOptions = {
-  root: null,
-  treshold: [0, 0.2],
-};
-
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-observer.observe(section1);
- */
 // Header Sticky
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
@@ -274,6 +247,7 @@ const slider = function () {
     activateDot(0);
   };
   init();
+
   // Event handlers
   btnRight.addEventListener('click', nextSlide);
   btnLeft.addEventListener('click', prevSlide);
@@ -305,87 +279,3 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = 'https://bankingsapp.netlify.app/';
   });
 });
-
-// btnLeft.addEventListener('click', function () {
-//   curSlide--;
-//   slides.forEach(
-//     (s, i) => (s.style.transform = `translateX(${100 * (curSlide - i)}%)`)
-//   );
-// });
-
-// curSlide = 1: -100%, 0%, 100%, 200%
-
-//PRACTICE//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//selecing elements
-/* 
-const header = document.querySelector('.header');
-const allSection = document.querySelectorAll('.section');
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
-console.log(document.getElementsByClassName('btn'));
-
-// Creating and inserting elements
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-// message.textContent = 'We use cookies for improved functionality and analytics';
-message.innerHTML =
-  'We use cookies for improved functionality and analytics. <button class = "btn btn--close-cookies">Got it!</button>';
-
-// header.prepend(message);
-header.append(message);
-// header.append(message.cloneNode(true));
-// header.before(message);
-header.after(message);
-
-// Delete elements
-document
-  .querySelector('.btn--close-cookies')
-  .addEventListener('click', function () {
-    message.remove();
-  });
-
-//// Styles
-
-message.style.backgroundColor = '#37383d';
-console.log(getComputedStyle(message).height);
-
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
-
-document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
-logo.alt = 'beatiful minimalist logo';
-console.log(logo.getAttribute('src'));
-
- */
-
-// rgb(255, 255,255)
-//random number
-/* const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
-document.querySelector('.nav').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
- */
-
-/* const h1 = document.querySelector('h1');
-
-//going downwards : child
-
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes); */
